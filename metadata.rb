@@ -1,0 +1,8 @@
+name 'plunker'
+maintainer 'Chaz Chandler'
+maintainer_email 'clc31@chaznet.local'
+license 'all_rights'
+description 'Installs/Configures plunker'
+long_description 'Installs/Configures plunker'
+version '0.1.0'
+depends 'tarball', '~> 0.0.1'

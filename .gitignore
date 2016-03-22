@@ -1,0 +1,3 @@
+.kitchen/default-ubuntu-1204.yml
+.kitchen/logs
+vendor/bundle

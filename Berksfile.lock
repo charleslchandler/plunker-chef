@@ -1,0 +1,11 @@
+DEPENDENCIES
+  plunker
+    path: .
+    metadata: true
+  tarball
+    path: ../tarball-chef-cookbook
+
+GRAPH
+  plunker (0.1.0)
+    tarball (~> 0.0.1)
+  tarball (0.0.1)

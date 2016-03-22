@@ -1,0 +1,19 @@
+{
+  "host": "<%= @collab_server_fqdn %>",
+  "url": {
+    "www": "<%= @protocol %>://<%= @www_server_fqdn %>:<%= @www_server_port %>",
+    "collab": "<%= @protocol %>://<%= @collab_server_fqdn %>:<%= @collab_server_port %>",
+    "api": "<%= @protocol %>://<%= @api_server_fqdn %>:<%= @api_server_port %>",
+    "embed": "<%= @protocol %>://<%= @embed_server_fqdn %>:<%= @embed_server_port %>",
+    "run": "<%= @protocol %>://<%= @run_server_fqdn %>:<%= @run_server_port %>",
+    "carbonadsH": "You can probably ignore this",
+    "carbonadsV": "...and this"
+  },
+  "PORT": <%= @collab_server_port %>,
+  "oauth": {
+    "github": {
+      "id": "<%= @github_client_id %>",
+      "secret": "<%= @github_client_secret %>"
+    }
+  }
+}

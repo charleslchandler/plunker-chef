@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    ServerAdmin admin@<%= @www_server_fqdn %>
+    ServerName <%= @www_server_fqdn %>
+    ProxyPreserveHost On
+
+    <Proxy *>
+        Order allow,deny
+        Allow from all
+    </Proxy>
+    ProxyPass / <%= @protocol %>://localhost:<%= @www_server_port %>/
+    ProxyPassReverse / <%= @protocol %>://localhost:<%= @www_server_port %>/
+</VirtualHost>
