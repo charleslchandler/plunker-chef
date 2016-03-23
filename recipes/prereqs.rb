@@ -9,6 +9,8 @@ package 'python'
 package 'g++'
 package 'make'
 package 'nodejs'
+package 'nodejs-legacy'
+package 'npm'
 
 execute 'install npm-forever' do
   command "npm install -g forever"

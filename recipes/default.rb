@@ -6,17 +6,18 @@
 
 require_recipe 'plunker::prereqs'
 
-username  = "plunker"
-groupname = "plunker"
+username  = node['plunker']['username']
+groupname = node['plunker']['groupname']
+conf_dir  = node['plunker']['conf_dir']
 
 group groupname
 user  username do
   group groupname
 end
 
-directory "/etc/plunker" do
-  user   "root"
-  group  "root"
+directory conf_dir do
+  user   username
+  group  groupname
   mode   "0755"
   action :create
 end
