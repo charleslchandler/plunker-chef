@@ -21,3 +21,5 @@ directory conf_dir do
   mode   "0755"
   action :create
 end
+
+package 'git'
