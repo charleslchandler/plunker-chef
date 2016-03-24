@@ -18,6 +18,7 @@ fqdn        = "#{node['hostname']}.#{node['dns']['domain']}"
 #fqdn        = 'localhost'
 conf_file   = '/etc/plunker/config.api.json'
 task_name   = "plunker-api"
+node_env    = "development"
 
 execute 'add user to mongodb' do
   command "mongo #{database} --eval 'db.addUser(\"#{username}\", \"#{password}\")'"
@@ -99,7 +100,8 @@ template "/etc/init.d/#{task_name}" do
   mode '0755'
   variables({
     task_name: task_name,
-    app_root:  destdir
+    app_root:  destdir,
+    node_env:  node_env
   })
   action :create
 end

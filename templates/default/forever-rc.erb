@@ -44,7 +44,7 @@ start() {
    # Launching forever with a full path
    # does not work unless we set the PATH.
    PATH=/usr/local/bin:$PATH
-	export NODE_ENV=production
+	export NODE_ENV="<%= @node_env %>"
    #PORT=80
    $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" --workingDir "<%= @app_root %>" $nodeApp
    RETVAL=$?

@@ -12,6 +12,7 @@ fqdn        = "#{node['hostname']}.#{node['dns']['domain']}"
 #fqdn        = 'localhost'
 conf_file   = '/etc/plunker/config.run.json'
 task_name   = "plunker-run"
+node_env    = "development"
 
 template conf_file do
   source 'config.run.json.erb'
@@ -85,7 +86,8 @@ template "/etc/init.d/#{task_name}" do
   mode '0755'
   variables({
     task_name: task_name,
-    app_root:  destdir
+    app_root:  destdir,
+    node_env:  node_env
   })
   action :create
 end

@@ -12,6 +12,7 @@ fqdn        = "#{node['hostname']}.#{node['dns']['domain']}"
 #fqdn        = 'localhost'
 conf_file   = '/etc/plunker/config.embed.json'
 task_name   = "plunker-embed"
+node_env    = "development"
 
 template conf_file do
   source 'config.embed.json.erb'
@@ -65,11 +66,7 @@ execute 'install npm packages locally' do
   cwd destdir
 end
 
-link "#{destdir}/config.development.json" do
-  to conf_file
-end
-
-link "#{destdir}/config.production.json" do
+link "#{destdir}/config.json" do
   to conf_file
 end
 
@@ -85,7 +82,8 @@ template "/etc/init.d/#{task_name}" do
   mode '0755'
   variables({
     task_name: task_name,
-    app_root:  destdir
+    app_root:  destdir,
+    node_env:  node_env
   })
   action :create
 end
